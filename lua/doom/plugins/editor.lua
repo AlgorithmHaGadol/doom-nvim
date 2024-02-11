@@ -197,4 +197,76 @@ return {
 			vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 		end,
 	},
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("which-key").register({
+				["<leader>n"] = {
+					name = "+Notes",
+					t = { "<cmd>TodoTelescope keywords=TODO<CR>", "Todo Notes" },
+					n = { "<cmd>TodoTelescope keywords=NOTE,INFO<CR>", "Find Notes" },
+					T = { "<cmd>TodoTelescope keywords=TEST,TESTING,PASSED,FAILED<CR>", "Tests Notes" },
+					p = { "<cmd>TodoTelescope keywords=PERF,PERFORMANCE,OPTIM,OPTIMIZE<CR>", "Performance Notes" },
+					w = { "<cmd>TodoTelescope keywords=WARN,WARNING,HACK,XXX<CR>", "Warning Notes" },
+					b = { "<cmd>TodoTelescope keywords=FIX,BUG,FIXME,FIXIT,ISSUE<CR>", "Bugs Notes" },
+					s = { "<cmd>TodoTelescope<CR>", "Search Notes" },
+				},
+			})
+		end,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.5",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		config = function()
+			local builtin = require("telescope.builtin")
+			local wk = require("which-key")
+			wk.register({
+				["<leader>f"] = {
+					name = "+File",
+					f = { builtin.find_files, "Find Files" },
+					g = { builtin.live_grep, "Live Grep" },
+					h = { builtin.help_tags, "Help Tags" },
+					r = { builtin.oldfiles, "Open Recent File" },
+					s = { "<cmd>w<CR>", "Save File" },
+					S = { "<cmd>wq<CR>", "Save and Close" },
+				},
+				["<leader>bl"] = { builtin.buffers, "List Buffers" },
+			})
+		end,
+	},
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
+		config = function()
+			require("telescope").setup({
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown({}),
+					},
+				},
+			})
+			require("telescope").load_extension("ui-select")
+		end,
+	},
+	{
+		"nvim-telescope/telescope-project.nvim",
+		config = function()
+			require("telescope").load_extension("project")
+			require("which-key").register({
+				["<leader>p"] = {
+					name = "+Project",
+					p = { "<cmd>Telescope project<CR>", "Open a roject" },
+				},
+				["<leader> "] = { "<cmd>Telescope project<CR>", "Find file in project" },
+			})
+		end,
+	},
 }
