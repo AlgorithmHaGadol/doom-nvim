@@ -7,41 +7,7 @@ return {
 				style = "darker",
 			})
 			od.load()
-			local colors = {
-				bg = "#282c34",
-				fg = "#abb2bf",
-				yellow = "#ECBE7B",
-				cyan = "#008080",
-				darkblue = "#081633",
-				green = "#98c379",
-				orange = "#FF8800",
-				violet = "#a9a1e1",
-				magenta = "#c678dd",
-				blue = "#51afef",
-				red = "#e06c75",
-			}
-			local mode_color = {
-				n = colors.red,
-				i = colors.green,
-				v = colors.blue,
-				[""] = colors.blue,
-				V = colors.blue,
-				c = colors.magenta,
-				no = colors.red,
-				s = colors.orange,
-				S = colors.orange,
-				[""] = colors.orange,
-				ic = colors.yellow,
-				R = colors.violet,
-				Rv = colors.violet,
-				cv = colors.red,
-				ce = colors.red,
-				r = colors.cyan,
-				rm = colors.cyan,
-				["r?"] = colors.cyan,
-				["!"] = colors.red,
-				t = colors.red,
-			}
+			local mode_color = require("doom.utils.ui").mode_color
 			vim.api.nvim_set_hl(0, "CursorLineNr", { fg = mode_color[vim.fn.mode()] })
 
 			vim.api.nvim_create_autocmd({ "ModeChanged" }, {

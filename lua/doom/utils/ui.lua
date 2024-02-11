@@ -7,7 +7,7 @@ local M = {}
 --   [1. Onedark ] = "colo onedark"
 --   [2. Tokyonight ] = function() vim.cmd("colo tokyonight") end
 -- }
--- create_select_menu("Choose a colorscheme", options)
+-- create_select_menu("Choose a M.colors.heme", options)
 --
 -- @arg prompt: the prompt to display
 -- @arg options_table: Table of the form { [n. Display name] = lua-function/vim-cmd, ... }
@@ -52,5 +52,42 @@ M.create_select_menu = function(prompt, options_table)
 
 	return menu
 end
+
+M.colors = {
+	bg = "#282c34",
+	fg = "#abb2bf",
+	yellow = "#ECBE7B",
+	cyan = "#008080",
+	darkblue = "#081633",
+	green = "#98c379",
+	orange = "#FF8800",
+	violet = "#a9a1e1",
+	magenta = "#c678dd",
+	blue = "#51afef",
+	red = "#e06c75",
+}
+
+M.mode_color = {
+	n = M.colors.red,
+	i = M.colors.green,
+	v = M.colors.blue,
+	[""] = M.colors.blue,
+	V = M.colors.blue,
+	c = M.colors.magenta,
+	no = M.colors.red,
+	s = M.colors.orange,
+	S = M.colors.orange,
+	[""] = M.colors.orange,
+	ic = M.colors.yellow,
+	R = M.colors.violet,
+	Rv = M.colors.violet,
+	cv = M.colors.red,
+	ce = M.colors.red,
+	r = M.colors.cyan,
+	rm = M.colors.cyan,
+	["r?"] = M.colors.cyan,
+	["!"] = M.colors.red,
+	t = M.colors.red,
+}
 
 return M
