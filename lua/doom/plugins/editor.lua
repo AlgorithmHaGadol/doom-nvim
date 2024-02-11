@@ -6,11 +6,6 @@ return {
 		version = "*",
 		config = true,
 	},
-    -- auto complete tags
-    {
-        "windwp/nvim-ts-autotag",
-        opts = {}
-    },
 	-- Making Commenting easier
 	{
 		"numToStr/Comment.nvim",
@@ -38,6 +33,7 @@ return {
 		build = ":TSUpdate",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
+			"windwp/nvim-ts-autotag",
 		},
 		config = function()
 			local config = require("nvim-treesitter.configs")
