@@ -6,6 +6,11 @@ return {
 		version = "*",
 		config = true,
 	},
+    -- auto complete tags
+    {
+        "windwp/nvim-ts-autotag",
+        opts = {}
+    },
 	-- Making Commenting easier
 	{
 		"numToStr/Comment.nvim",

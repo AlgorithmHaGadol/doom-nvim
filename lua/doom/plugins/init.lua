@@ -6,7 +6,6 @@ return {
 			require("gitsigns").setup()
 		end,
 	},
-	"windwp/nvim-ts-autotag",
 	-- TODO: Possibly Rewrite this one too
 	{
 		"szw/vim-maximizer", -- Maximize window splits
