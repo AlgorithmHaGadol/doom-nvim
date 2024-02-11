@@ -1,6 +1,9 @@
 -- Set <leader> key
 vim.g.mapleader = " " -- SPC
 local keymap = vim.keymap
+local selectMenu = require("doom.utils.ui").create_select_menu
+local quitDoom = selectMenu("Quit DOOM:", { ["1. yes"] = "qa", ["2. No"] = "" })
+local quitDoomNoSave = selectMenu("Quit DOOM without Saving:", { ["1. yes"] = "qa!", ["2. No"] = "" })
 
 -- fix x key to not save deleted character
 keymap.set("n", "x", "_x")
@@ -57,3 +60,12 @@ keymap.set("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close Current Tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to Next Tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to Previous Tab" })
 keymap.set("n", "<leader>tf", "<cmd>tab %<CR>", { desc = "Open Current File in New Tab" })
+
+-- Buffer Commands using <leader>b
+keymap.set("n", "<leader>bp", "<cmd>bp<CR>", { desc = "Previous Buffer" })
+keymap.set("n", "<leader>bn", "<cmd>bn<CR>", { desc = "Next Buffer" })
+keymap.set("n", "<leader>bk", "<cmd>bd<CR>", { desc = "Kill Buffer" })
+
+-- Quitting Commands using <leader>q
+keymap.set("n", "<leader>qq", quitDoom, { desc = "Quit DOOM" })
+keymap.set("n", "<leader>qQ", quitDoomNoSave, { desc = "Quit DOOM without Saving" })

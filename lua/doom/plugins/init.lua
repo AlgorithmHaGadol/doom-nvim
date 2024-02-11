@@ -1,6 +1,10 @@
 return {
 	"nvim-lua/plenary.nvim", -- needed by other plugins
-	"lewis6991/gitsigns.nvim",
+    {"lewis6991/gitsigns.nvim",
+        config = function ()
+            require("gitsigns").setup()
+        end
+    }
 	-- "airblade/vim-gitgutter",
 	-- TODO: Possibly Rewrite this one too
 	"szw/vim-maximizer", -- Maximize window splits
