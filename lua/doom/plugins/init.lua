@@ -6,6 +6,7 @@ return {
 			require("gitsigns").setup()
 		end,
 	},
+	"windwp/nvim-ts-autotag",
 	-- TODO: Possibly Rewrite this one too
 	{
 		"szw/vim-maximizer", -- Maximize window splits
@@ -19,5 +20,4 @@ return {
 	"NTBBloodbath/doom-one.nvim", -- also a theme
 	-- TODO: Rewrite numbertoggle
 	"sitiom/nvim-numbertoggle", -- Line Number toggle based on file
-	-- "m-demare/hlargs.nvim", -- Highlight Arguments
 }
