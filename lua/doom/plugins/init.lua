@@ -6,9 +6,13 @@ return {
 			require("gitsigns").setup()
 		end,
 	},
-	-- "airblade/vim-gitgutter",
 	-- TODO: Possibly Rewrite this one too
-	"szw/vim-maximizer", -- Maximize window splits
+	{
+		"szw/vim-maximizer", -- Maximize window splits
+		keys = {
+			{ "<leader>wm", "<cmd>MaximizerToggle<CR>", desc = "Toggle Maximize" },
+		},
+	},
 
 	-- TODO: Rewrite DOOM Themes and colors including doom-one
 	"GustavoPrietoP/doom-themes.nvim", -- themes for doom
