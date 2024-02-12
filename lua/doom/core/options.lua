@@ -1,5 +1,9 @@
 local opt = vim.opt
 
+-- Concealing (for org mode)
+opt.conceallevel = 2
+opt.concealcursor = "nc"
+
 -- line numbers
 opt.relativenumber = true
 opt.number = true
